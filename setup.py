@@ -16,15 +16,16 @@ setup(
     description="an event logger for Django projects",
     name="pinax-eventlog",
     long_description=read("README.rst"),
-    version="1.1.2",
+    version="1.1.3",
     url="http://pinax-eventlog.rtfd.org/",
     license="MIT",
     packages=find_packages(),
     test_suite="runtests.runtests",
     install_requires=[
-        "jsonfield>=1.0.3"
     ],
     tests_require=[
+        "Django",
+        "coverage"
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
