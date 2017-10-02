@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='log',
             name='content_type',
-            field=models.ForeignKey(to='contenttypes.ContentType', null=True),
+            field=models.ForeignKey(to='contenttypes.ContentType', null=True, on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
