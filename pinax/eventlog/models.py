@@ -19,7 +19,7 @@ class Log(models.Model):
     )
     timestamp = models.DateTimeField(default=timezone.now, db_index=True)
     action = models.CharField(max_length=50, db_index=True)
-    content_type = models.ForeignKey(ContentType, null=True)
+    content_type = models.ForeignKey(ContentType, null=True, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField(null=True)
     obj = GenericForeignKey("content_type", "object_id")
     extra = JSONField()
@@ -33,7 +33,7 @@ class Log(models.Model):
 
 
 def log(user, action, extra=None, obj=None, dateof=None):
-    if (user is not None and not user.is_authenticated()):
+    if (user is not None and not user.is_authenticated):
         user = None
     if extra is None:
         extra = {}
